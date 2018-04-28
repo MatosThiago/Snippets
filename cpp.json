@@ -41,28 +41,53 @@
 	"Default": {
         "prefix": "cpp",
         "body": [
-          "#include <${1:iostream}>",
-          "\nusing namespace std;",
+          "#include <${1:iostream}>"
+          "\nusing namespace std;"
           "\nint main() {"
 		  "\n\t$0"
 		  "\n\treturn 0;"
 		  "}"
         ],
         "description": "Set default code structure"
-    },
+    }
 
     "Competitive": {
         "prefix": "pc",
         "body": [
-          "#include <bits/stdc++.h>",
-          "\nusing namespace std;",
+          "#include <bits/stdc++.h>"
+          "\nusing namespace std;"
           "\nint main() {"
 		  "\n\t$0"
 		  "\n\treturn 0;"
 		  "}"
         ],
         "description": "Set default competitive structure"
-    },
+    }
+
+	"Competitive Macros": {
+        "prefix": "pcm",
+        "body": [
+          "#include <bits/stdc++.h>"
+		  "\nusing namespace std;"
+		  "\n#define ll long long"
+          "\nint main() {"
+		  "\n\t$0"
+		  "\n\treturn 0;"
+		  "}"
+        ],
+        "description": "Set default competitive structure with macros"
+    }
+
+	"Main": {
+        "prefix": "main",
+        "body": [
+          "int main() {"
+		  "\n\t$0"
+		  "\n\treturn 0;"
+		  "}"
+        ],
+        "description": "Set default code structure"
+    }
 
 	"Header": {
         "prefix": "hpp",
@@ -73,7 +98,7 @@
 		  "\n#endif"
         ],
         "description": "Set default header structure"
-    },
+    }
 
 	"Class": {
 		"prefix": "c",
@@ -91,7 +116,7 @@
 	"For": {
 		"prefix": "fr",
 		"body": [
-			"for(${1:int} ${2:i} = 0; $2 < ${3:N}; $2++) {"
+			"for(${1:int} ${2:i} = ${3:0}; $2 < ${4:N}; $2${5:++}) {"
 			"\t$0"
 			"}"
 		],
@@ -175,10 +200,80 @@
 	"Using Namespace": {
 		"prefix": "un",
 		"body": [
-			"using namespace ${1:std};"
-			"\n$0"
+			"using namespace ${1:std};$0"
 		],
 		"description": "using namespace"
+	}
+
+	"Push Back": {
+		"prefix": "pb",
+		"body": [
+			"push_back(${1:Aux});$0"
+		],
+		"description": "push back"
+	}
+
+	"Make Pair": {
+		"prefix": "mp",
+		"body": [
+			"make_pair(${1:Aux}, ${2:Liar});$0"
+		],
+		"description": "make pair"
+	}
+
+	"Segment Tree": {
+		"prefix": "cst",
+		"body": [
+			"class SegTree {"
+			"\n\tprivate:"
+			"\n\t\tvector<long long> st;"
+			"\n\t\tlong long size;"
+			"\t\tlong long neutro = $1;"
+			"\n\t\tlong long func(long long a, long long b) {"
+			"\t\t\treturn $2;"
+			"\t\t}"
+			"\t\tvoid update(long long sti, long long stl, long long str, long long id, long long n) {"
+			"\t\t\tif(stl == id && str == id) {"
+			"\t\t\t\tst[sti] = n;"
+			"\t\t\t\treturn;"
+			"\t\t\t}"
+			"\n\t\t\tif(stl > id || str < id) {"
+			"\t\t\t\treturn;"
+			"\t\t\t}"
+			"\n\t\t\tlong long mid = (stl + str) / 2;"
+			"\n\t\t\tupdate(sti*2 + 1, stl, mid, id, n);"
+			"\t\t\tupdate(sti*2 + 2, mid + 1, str, id, n);"
+			"\t\t\tst[sti] = func(st[sti*2 + 1], st[sti*2 + 2]);"
+			"\t\t}"
+			"\t\tlong long query(long long sti, long long stl, long long str, long long l, long long r) {"
+			"\t\t\tif(stl > r || str < l) {"
+			"\t\t\t\treturn neutro;"
+			"\t\t\t}"
+			"\n\t\t\tif(stl >= l && str <= r) {"
+			"\t\t\t\treturn st[sti];"
+			"\t\t\t}"
+			"\n\t\t\tlong long mid = (stl + str) / 2;"
+			"\n\t\t\treturn func(query(sti*2 + 1, stl, mid, l, r), query(sti*2 + 2, mid + 1, str, l, r));"
+			"\t\t}"
+			"\n\tpublic:"
+			"\n\t\tSegTree(long long n) : st(n * 4, 0) {"
+			"\t\t\tsize = n;"
+			"\t\t}"
+			"\n\t\tvoid create(vector<long long> &V) {"
+			"\t\t\tfor(long long i = 0; i < V.size(); i++) {"
+			"\t\t\tthis->update(i, V[i]);"
+			"\t\t\t}"
+			"\t\t}"
+			"\t\tvoid update(long long id, long long n) {"
+			"\t\t\tupdate(0, 0, size - 1, id, n);"
+			"\t\t}"
+			"\t\tlong long query(long long l, long long r) {"
+			"\t\t\treturn (query(0, 0, size - 1, l, r));"
+			"\t\t}"
+			"};"
+			"\n$0"
+		],
+		"description": "segment tree"
 	}
 
 	"Test": {
