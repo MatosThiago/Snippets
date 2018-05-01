@@ -64,7 +64,7 @@
         "description": "Set default competitive structure"
     }
 
-	"Competitive Macros": {
+	"Competitive with Macros": {
         "prefix": "pcm",
         "body": [
           "#include <bits/stdc++.h>"
@@ -87,6 +87,14 @@
 		  "}"
         ],
         "description": "Set default code structure"
+	}
+	
+	"Include": {
+        "prefix": "inc",
+        "body": [
+          "#include <${1:bits/stdc++.h}>$0"
+        ],
+        "description": "include"
     }
 
 	"Header": {
@@ -113,24 +121,44 @@
 		"description": "class"
 	}
 
+	"Struct": {
+		"prefix": "s",
+		"body": [
+			"struct ${1:Struct} {"
+			"\t$0"
+			"};"
+		],
+		"description": "struct"
+	}
+
 	"For": {
 		"prefix": "fr",
 		"body": [
-			"for(${1:int} ${2:i} = ${3:0}; $2 < ${4:N}; $2${5:++}) {"
+			"for(${1:int} ${2:i} = ${3:0}; $2 ${4:<} ${5:N}; $2${6:++}) {"
 			"\t$0"
 			"}"
 		],
 		"description": "for"
 	}
 
-	"For Reverse": {
+	"For Range Declaration": {
 		"prefix": "frr",
 		"body": [
-			"for(${1:int} ${2:i} = ${3:N}; $2 > 0; $2--) {"
+			"for(auto i:${1:V}) {"
 			"\t$0"
 			"}"
 		],
-		"description": "for"
+		"description": "for range declaration"
+	}
+
+	"For Each": {
+		"prefix": "fre",
+		"body": [
+			"for_each(${1:V}.begin(), $1.end(), [$2]($3) {"
+			"\t$0"
+			"});"
+		],
+		"description": "for each"
 	}
 
 	"While": {
@@ -189,6 +217,30 @@
 		"description": "printf"
 	}
 
+	"Cin": {
+		"prefix": "cn",
+		"body": [
+			"cin >> $1;$0"
+		],
+		"description": "cin"
+	}
+
+	"Cout": {
+		"prefix": "ct",
+		"body": [
+			"cout << $1;$0"
+		],
+		"description": "cout"
+	}
+
+	"Cout with Endl": {
+		"prefix": "cte",
+		"body": [
+			"cout << $1 << endl;$0"
+		],
+		"description": "cout with endl"
+	}
+
 	"Throw": {
 		"prefix": "th",
 		"body": [
@@ -219,6 +271,30 @@
 			"make_pair(${1:Aux}, ${2:Liar});$0"
 		],
 		"description": "make pair"
+	}
+
+	"Vector": {
+		"prefix": "v",
+		"body": [
+			"vector<${1:int}> $0"
+		],
+		"description": "vector"
+	}
+
+	"Map": {
+		"prefix": "m",
+		"body": [
+			"map<${1:int}, ${2:int}> $0"
+		],
+		"description": "map"
+	}
+
+	"Pair": {
+		"prefix": "p",
+		"body": [
+			"pair<${1:int}, ${2:int}> $0"
+		],
+		"description": "pair"
 	}
 
 	"Segment Tree": {
