@@ -217,6 +217,14 @@
 		"description": "printf"
 	}
 
+	"Long Long": {
+		"prefix": "ll",
+		"body": [
+			"long long $0"
+		],
+		"description": "long long"
+	}
+
 	"Cin": {
 		"prefix": "cn",
 		"body": [
