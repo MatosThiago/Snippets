@@ -1,7 +1,7 @@
 {
 
 	"Header": {
-        "prefix": "hpp",
+        "prefix": "h",
         "body": [
           "#ifndef $1"
           "#define $1"
@@ -184,7 +184,7 @@
 	"Printf": {
 		"prefix": "prf",
 		"body": [
-			"printf(\"%$1\n\", $2);$0"
+			"printf(\"%$1\\n\", $2);$0"
 		],
 		"description": "printf"
 	}
@@ -219,6 +219,14 @@
 			"push_back(${1:Aux});$0"
 		],
 		"description": "push back"
+	}
+
+	"Lower Bound": {
+		"prefix": "lb",
+		"body": [
+			"lower_bound(${1:V}.begin(), $1.end(), $2)${3: - $1.begin()};$0"
+		],
+		"description": "lower bound"
 	}
 
 	"Map": {
