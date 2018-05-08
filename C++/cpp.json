@@ -1,311 +1,398 @@
 {
 
-"Header": {
-	"prefix": "h",
-	"body": [
-	  "#ifndef $1"
-	  "#define $1"
-	  "\n$0"
-	  "\n#endif"
-	],
-	"description": "Set default header structure"
-}
+	"Header": {
+        "prefix": "h",
+        "body": [
+          "#ifndef $1"
+          "#define $1"
+          "\n$0"
+		  "\n#endif"
+        ],
+        "description": "Set default header structure"
+    }
 
-"Default": {
-	"prefix": "cpp",
-	"body": [
-	  "#include <${1:iostream}>"
-	  "\nusing namespace std;"
-	  "\nint main() {"
-	  "\n\t$0"
-	  "\n\treturn 0;"
-	  "}"
-	],
-	"description": "Set default code structure"
-}
+	"Default": {
+        "prefix": "cpp",
+        "body": [
+          "#include <${1:iostream}>"
+          "\nusing namespace std;"
+          "\nint main() {"
+		  "\n\t$0"
+		  "\n\treturn 0;"
+		  "}"
+        ],
+        "description": "Set default code structure"
+    }
 
-"Competitive": {
-	"prefix": "pc",
-	"body": [
-	  "#include <bits/stdc++.h>"
-	  "\nusing namespace std;"
-	  "\nint main() {"
-	  "\n\t$0"
-	  "\n\treturn 0;"
-	  "}"
-	],
-	"description": "Set default competitive structure"
-}
+    "Competitive": {
+        "prefix": "pc",
+        "body": [
+          "#include <bits/stdc++.h>"
+          "\nusing namespace std;"
+          "\nint main() {"
+		  "\n\t$0"
+		  "\n\treturn 0;"
+		  "}"
+        ],
+        "description": "Set default competitive structure"
+    }
+	
+	"Include": {
+        "prefix": "inc",
+        "body": [
+          "#include <${1:bits/stdc++.h}>$0"
+        ],
+        "description": "include"
+    }
 
-"Include": {
-	"prefix": "inc",
-	"body": [
-	  "#include <${1:bits/stdc++.h}>$0"
-	],
-	"description": "include"
-}
+	"Using Namespace": {
+		"prefix": "un",
+		"body": [
+			"using namespace ${1:std};$0"
+		],
+		"description": "using namespace"
+	}
 
-"Using Namespace": {
-	"prefix": "un",
-	"body": [
-		"using namespace ${1:std};$0"
-	],
-	"description": "using namespace"
-}
+	"Main": {
+        "prefix": "main",
+        "body": [
+          "int main() {"
+		  "\n\t$0"
+		  "\n\treturn 0;"
+		  "}"
+        ],
+        "description": "Set default code structure"
+	}
 
-"Main": {
-	"prefix": "main",
-	"body": [
-	  "int main() {"
-	  "\n\t$0"
-	  "\n\treturn 0;"
-	  "}"
-	],
-	"description": "Set default code structure"
-}
+	"Long Long": {
+		"prefix": "ll",
+		"body": [
+			"long long $0"
+		],
+		"description": "long long"
+	}
 
-"Long Long": {
-	"prefix": "ll",
-	"body": [
-		"long long $0"
-	],
-	"description": "long long"
-}
+	"Class": {
+		"prefix": "c",
+		"body": [
+			"class ${1:Class} {"
+			"\n\tprivate:"
+			"\n\t\t$2"
+			"\n\tpublic:"
+			"\n\t\t$0"
+			"};"
+		],
+		"description": "class"
+	}
 
-"Class": {
-	"prefix": "c",
-	"body": [
-		"class ${1:Class} {"
-		"\n\tprivate:"
-		"\n\t\t$2"
-		"\n\tpublic:"
-		"\n\t\t$0"
-		"};"
-	],
-	"description": "class"
-}
+	"Struct": {
+		"prefix": "s",
+		"body": [
+			"struct ${1:Struct} {"
+			"\t$0"
+			"};"
+		],
+		"description": "struct"
+	}
 
-"Struct": {
-	"prefix": "s",
-	"body": [
-		"struct ${1:Struct} {"
-		"\t$0"
-		"};"
-	],
-	"description": "struct"
-}
+	"If": {
+		"prefix": "if",
+		"body": [
+			"if($1) {"
+			"\t$0"
+			"}"
+		],
+		"description": "if"
+	}
 
-"If": {
-	"prefix": "if",
-	"body": [
-		"if($1) {"
-		"\t$0"
-		"}"
-	],
-	"description": "if"
-}
+	"Else": {
+		"prefix": "e",
+		"body": [
+			"else {"
+			"\t$0"
+			"}"
+		],
+		"description": "else"
+	}
 
-"Else": {
-	"prefix": "e",
-	"body": [
-		"else {"
-		"\t$0"
-		"}"
-	],
-	"description": "else"
-}
+	"For": {
+		"prefix": "fr",
+		"body": [
+			"for(${1:int} ${2:i} = ${3:0}; $2 ${4:<} ${5:N}; $2${6:++}) {"
+			"\t$0"
+			"}"
+		],
+		"description": "for"
+	}
 
-"For": {
-	"prefix": "fr",
-	"body": [
-		"for(${1:int} ${2:i} = ${3:0}; $2 ${4:<} ${5:N}; $2${6:++}) {"
-		"\t$0"
-		"}"
-	],
-	"description": "for"
-}
+	"For Range Declaration": {
+		"prefix": "frr",
+		"body": [
+			"for(auto i:${1:V}) {"
+			"\t$0"
+			"}"
+		],
+		"description": "for range declaration"
+	}
 
-"For Range Declaration": {
-	"prefix": "frr",
-	"body": [
-		"for(auto i:${1:V}) {"
-		"\t$0"
-		"}"
-	],
-	"description": "for range declaration"
-}
+	"For Each": {
+		"prefix": "fre",
+		"body": [
+			"for_each(${1:V}.begin(), $1.end(), [$2]($3) {"
+			"\t$0"
+			"});"
+		],
+		"description": "for each"
+	}
 
-"For Each": {
-	"prefix": "fre",
-	"body": [
-		"for_each(${1:V}.begin(), $1.end(), [$2]($3) {"
-		"\t$0"
-		"});"
-	],
-	"description": "for each"
-}
+	"While": {
+		"prefix": "we",
+		"body": [
+			"while($1) {"
+			"\t$0"
+			"}"
+		],
+		"description": "while"
+	}
 
-"While": {
-	"prefix": "we",
-	"body": [
-		"while($1) {"
-		"\t$0"
-		"}"
-	],
-	"description": "while"
-}
+	"Do While": {
+		"prefix": "dw",
+		"body": [
+			"do {"
+			"\t$0"
+			"} while($1);"
+		],
+		"description": "do while"
+	}
 
-"Do While": {
-	"prefix": "dw",
-	"body": [
-		"do {"
-		"\t$0"
-		"} while($1);"
-	],
-	"description": "do while"
-}
+	"Scanf": {
+		"prefix": "scf",
+		"body": [
+			"scanf(\"%$1\", &$2);$0"
+		],
+		"description": "scanf"
+	}
 
-"Scanf": {
-	"prefix": "scf",
-	"body": [
-		"scanf(\"%$1\", &$2);$0"
-	],
-	"description": "scanf"
-}
+	"Cin": {
+		"prefix": "cn",
+		"body": [
+			"cin >> $1;$0"
+		],
+		"description": "cin"
+	}
 
-"Cin": {
-	"prefix": "cn",
-	"body": [
-		"cin >> $1;$0"
-	],
-	"description": "cin"
-}
+	"Printf": {
+		"prefix": "prf",
+		"body": [
+			"printf(\"%$1\\n\", $2);$0"
+		],
+		"description": "printf"
+	}
 
-"Printf": {
-	"prefix": "prf",
-	"body": [
-		"printf(\"%$1\\n\", $2);$0"
-	],
-	"description": "printf"
-}
+	"Cout": {
+		"prefix": "ct",
+		"body": [
+			"cout << $1 << ${2:endl};$0"
+		],
+		"description": "cout"
+	}
 
-"Cout": {
-	"prefix": "ct",
-	"body": [
-		"cout << $1 << ${2:endl};$0"
-	],
-	"description": "cout"
-}
+	"Throw": {
+		"prefix": "th",
+		"body": [
+			"throw invalid_argument($0);"
+		],
+		"description": "throw"
+	}
 
-"Throw": {
-	"prefix": "th",
-	"body": [
-		"throw invalid_argument($0);"
-	],
-	"description": "throw"
-}
+	"Vector": {
+		"prefix": "v",
+		"body": [
+			"vector<${1:int}> $0"
+		],
+		"description": "vector"
+	}
 
-"Vector": {
-	"prefix": "v",
-	"body": [
-		"vector<${1:int}> $0"
-	],
-	"description": "vector"
-}
+	"Push Back": {
+		"prefix": "pb",
+		"body": [
+			"push_back(${1:Aux});$0"
+		],
+		"description": "push back"
+	}
 
-"Push Back": {
-	"prefix": "pb",
-	"body": [
-		"push_back(${1:Aux});$0"
-	],
-	"description": "push back"
-}
+	"Emplace Back": {
+		"prefix": "eb",
+		"body": [
+			"emplace_back($1, $2);$0"
+		],
+		"description": "emplace back"
+	}
 
-"Lower Bound": {
-	"prefix": "lb",
-	"body": [
-		"lower_bound(${1:V}.begin(), $1.end(), $2)${3: - $1.begin()};$0"
-	],
-	"description": "lower bound"
-}
+	"Lower Bound": {
+		"prefix": "lb",
+		"body": [
+			"lower_bound(${1:V}.begin(), $1.end(), $2)${3: - $1.begin()};$0"
+		],
+		"description": "lower bound"
+	}
 
-"Map": {
-	"prefix": "m",
-	"body": [
-		"map<${1:int}, ${2:int}> $0"
-	],
-	"description": "map"
-}
+	"Map": {
+		"prefix": "m",
+		"body": [
+			"map<${1:int}, ${2:int}> $0"
+		],
+		"description": "map"
+	}
 
-"Pair": {
-	"prefix": "p",
-	"body": [
-		"pair<${1:int}, ${2:int}> $0"
-	],
-	"description": "pair"
-}
+	"Pair": {
+		"prefix": "p",
+		"body": [
+			"pair<${1:int}, ${2:int}> $0"
+		],
+		"description": "pair"
+	}
 
-"Make Pair": {
-	"prefix": "mp",
-	"body": [
-		"make_pair(${1:Aux}, ${2:Liar});$0"
-	],
-	"description": "make pair"
-}
+	"Make Pair": {
+		"prefix": "mp",
+		"body": [
+			"make_pair(${1:Aux}, ${2:Liar});$0"
+		],
+		"description": "make pair"
+	}
 
-"Segment Tree": {
-	"prefix": "cst",
-	"body": [
-		"class SegTree {"
-		"\n\tprivate:"
-		"\n\t\tvector<long long> st;"
-		"\n\t\tlong long size;"
-		"\t\tlong long neutro = $1;"
-		"\n\t\tlong long func(long long a, long long b) {"
-		"\t\t\treturn $2;"
-		"\t\t}"
-		"\t\tvoid update(long long sti, long long stl, long long str, long long id, long long n) {"
-		"\t\t\tif(stl == id && str == id) {"
-		"\t\t\t\tst[sti] = n;"
-		"\t\t\t\treturn;"
-		"\t\t\t}"
-		"\n\t\t\tif(stl > id || str < id) {"
-		"\t\t\t\treturn;"
-		"\t\t\t}"
-		"\n\t\t\tlong long mid = (stl + str) / 2;"
-		"\n\t\t\tupdate(sti*2 + 1, stl, mid, id, n);"
-		"\t\t\tupdate(sti*2 + 2, mid + 1, str, id, n);"
-		"\t\t\tst[sti] = func(st[sti*2 + 1], st[sti*2 + 2]);"
-		"\t\t}"
-		"\t\tlong long query(long long sti, long long stl, long long str, long long l, long long r) {"
-		"\t\t\tif(stl > r || str < l) {"
-		"\t\t\t\treturn neutro;"
-		"\t\t\t}"
-		"\n\t\t\tif(stl >= l && str <= r) {"
-		"\t\t\t\treturn st[sti];"
-		"\t\t\t}"
-		"\n\t\t\tlong long mid = (stl + str) / 2;"
-		"\n\t\t\treturn func(query(sti*2 + 1, stl, mid, l, r), query(sti*2 + 2, mid + 1, str, l, r));"
-		"\t\t}"
-		"\n\tpublic:"
-		"\n\t\tSegTree(long long n) : st(n * 4, 0) {"
-		"\t\t\tsize = n;"
-		"\t\t}"
-		"\n\t\tvoid create(vector<long long> &V) {"
-		"\t\t\tfor(long long i = 0; i < V.size(); i++) {"
-		"\t\t\tthis->update(i, V[i]);"
-		"\t\t\t}"
-		"\t\t}"
-		"\t\tvoid update(long long id, long long n) {"
-		"\t\t\tupdate(0, 0, size - 1, id, n);"
-		"\t\t}"
-		"\t\tlong long query(long long l, long long r) {"
-		"\t\t\treturn (query(0, 0, size - 1, l, r));"
-		"\t\t}"
-		"};"
-		"\n$0"
-	],
-	"description": "segment tree"
-}
+	"All Divisors": {
+		"prefix": "pcad",
+		"body": [
+			"vector<${1:long long}> all_divisors($1 N) {"
+			"\n\tvector<$1> V;"
+			"\n\tfor($1 i = 1; i * i <= N; i++) {"
+			"\t\tif(N % i == 0) {"
+			"\t\t\t$1 j = N / i;"
+			"\t\t\tV.push_back(i);"
+			"\t\t\tif(j != i) {"
+			"\t\t\t\tV.push_back(j);"
+			"\t\t\t}"
+			"\t\t}"
+			"\t}"
+			"\treturn V;"
+			"}"
+		],
+		"description": "all divisors"
+	}
+
+	"Qt Divisors": {
+		"prefix": "pcqd",
+		"body": [
+			"vector<${1:long long}> qt_divisors($1 N) {"
+			"\n\tvector<$1> V(N, 0);"
+			"\n\tfor($1 i = 1; i < N; i++) {"
+			"\t\tfor($1 j = i; j < N; j += i) {"
+			"\t\t\tV[j]++;"
+			"\t\t}"
+			"\t}"
+			"\n\treturn V;"
+			"}"
+		],
+		"description": "qt divisors"
+	}
+
+	"Primes": {
+		"prefix": "pcpn",
+		"body": [
+			"vector<${1:long long}> primes($1 N) {"
+			"\n\tvector<$1> V, Aux(N, 1);"
+			"\n\tfor($1 i = 2; i < N; i++) {"
+			"\t\tif(Aux[i] == 1) {"
+			"\t\t\tV.push_back(i);"
+			"\t\t\tfor($1 j = i + i; j < N; j += i) {"
+			"\t\t\t\tAux[j] = 0;"
+			"\t\t\t}"
+			"\t\t}"
+			"\t}"
+			"\n\treturn V;"
+			"}"
+		],
+		"description": "primes"
+	}
+
+	"Factors": {
+		"prefix": "pcf",
+		"body": [
+			"vector<pair<${1:long long}, int>> factors($1 N) {"
+			"\n\tvector<pair<$1, int>> V;"
+			"\n\tfor($1 i = 2; i * i <= N; i++) {"
+			"\t\tif(N % i == 0) {"
+			"\t\t\tint e = 0;"
+			"\t\t\twhile(N % i == 0) {"
+			"\t\t\t\tN /= i;"
+			"\t\t\t\te++;"
+			"\t\t\t}"
+			"\t\t\tV.emplace_back(i, e);"
+			"\t\t}"
+			"\t}"
+			"\n\tif(N > 1) {"
+			"\t\tV.emplace_back(N, 1);"
+			"\t}"
+			"\treturn V;"
+			"}"
+		],
+		"description": "factors"
+	}
+
+	"Segment Tree": {
+		"prefix": "pcst",
+		"body": [
+			"class SegTree {"
+			"\n\tprivate:"
+			"\n\t\tvector<long long> st;"
+			"\n\t\tlong long size;"
+			"\t\tlong long neutro = $1;"
+			"\n\t\tlong long func(long long a, long long b) {"
+			"\t\t\treturn $2;"
+			"\t\t}"
+			"\t\tvoid update(long long sti, long long stl, long long str, long long id, long long n) {"
+			"\t\t\tif(stl == id && str == id) {"
+			"\t\t\t\tst[sti] = n;"
+			"\t\t\t\treturn;"
+			"\t\t\t}"
+			"\n\t\t\tif(stl > id || str < id) {"
+			"\t\t\t\treturn;"
+			"\t\t\t}"
+			"\n\t\t\tlong long mid = (stl + str) / 2;"
+			"\n\t\t\tupdate(sti*2 + 1, stl, mid, id, n);"
+			"\t\t\tupdate(sti*2 + 2, mid + 1, str, id, n);"
+			"\t\t\tst[sti] = func(st[sti*2 + 1], st[sti*2 + 2]);"
+			"\t\t}"
+			"\t\tlong long query(long long sti, long long stl, long long str, long long l, long long r) {"
+			"\t\t\tif(stl > r || str < l) {"
+			"\t\t\t\treturn neutro;"
+			"\t\t\t}"
+			"\n\t\t\tif(stl >= l && str <= r) {"
+			"\t\t\t\treturn st[sti];"
+			"\t\t\t}"
+			"\n\t\t\tlong long mid = (stl + str) / 2;"
+			"\n\t\t\treturn func(query(sti*2 + 1, stl, mid, l, r), query(sti*2 + 2, mid + 1, str, l, r));"
+			"\t\t}"
+			"\n\tpublic:"
+			"\n\t\tSegTree(long long n) : st(n * 4, 0) {"
+			"\t\t\tsize = n;"
+			"\t\t}"
+			"\n\t\tvoid create(vector<long long> &V) {"
+			"\t\t\tfor(long long i = 0; i < V.size(); i++) {"
+			"\t\t\tthis->update(i, V[i]);"
+			"\t\t\t}"
+			"\t\t}"
+			"\t\tvoid update(long long id, long long n) {"
+			"\t\t\tupdate(0, 0, size - 1, id, n);"
+			"\t\t}"
+			"\t\tlong long query(long long l, long long r) {"
+			"\t\t\treturn (query(0, 0, size - 1, l, r));"
+			"\t\t}"
+			"};"
+			"\n$0"
+		],
+		"description": "segment tree"
+	}
 
 }

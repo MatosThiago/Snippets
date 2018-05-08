@@ -221,6 +221,14 @@
 		"description": "push back"
 	}
 
+	"Emplace Back": {
+		"prefix": "eb",
+		"body": [
+			"emplace_back($1, $2);$0"
+		],
+		"description": "emplace back"
+	}
+
 	"Lower Bound": {
 		"prefix": "lb",
 		"body": [
@@ -253,8 +261,87 @@
 		"description": "make pair"
 	}
 
+	"All Divisors": {
+		"prefix": "pcad",
+		"body": [
+			"vector<${1:long long}> all_divisors($1 N) {"
+			"\n\tvector<$1> V;"
+			"\n\tfor($1 i = 1; i * i <= N; i++) {"
+			"\t\tif(N % i == 0) {"
+			"\t\t\t$1 j = N / i;"
+			"\t\t\tV.push_back(i);"
+			"\t\t\tif(j != i) {"
+			"\t\t\t\tV.push_back(j);"
+			"\t\t\t}"
+			"\t\t}"
+			"\t}"
+			"\treturn V;"
+			"}"
+		],
+		"description": "all divisors"
+	}
+
+	"Qt Divisors": {
+		"prefix": "pcqd",
+		"body": [
+			"vector<${1:long long}> qt_divisors($1 N) {"
+			"\n\tvector<$1> V(N, 0);"
+			"\n\tfor($1 i = 1; i < N; i++) {"
+			"\t\tfor($1 j = i; j < N; j += i) {"
+			"\t\t\tV[j]++;"
+			"\t\t}"
+			"\t}"
+			"\n\treturn V;"
+			"}"
+		],
+		"description": "qt divisors"
+	}
+
+	"Primes": {
+		"prefix": "pcpn",
+		"body": [
+			"vector<${1:long long}> primes($1 N) {"
+			"\n\tvector<$1> V, Aux(N, 1);"
+			"\n\tfor($1 i = 2; i < N; i++) {"
+			"\t\tif(Aux[i] == 1) {"
+			"\t\t\tV.push_back(i);"
+			"\t\t\tfor($1 j = i + i; j < N; j += i) {"
+			"\t\t\t\tAux[j] = 0;"
+			"\t\t\t}"
+			"\t\t}"
+			"\t}"
+			"\n\treturn V;"
+			"}"
+		],
+		"description": "primes"
+	}
+
+	"Factors": {
+		"prefix": "pcf",
+		"body": [
+			"vector<pair<${1:long long}, int>> factors($1 N) {"
+			"\n\tvector<pair<$1, int>> V;"
+			"\n\tfor($1 i = 2; i * i <= N; i++) {"
+			"\t\tif(N % i == 0) {"
+			"\t\t\tint e = 0;"
+			"\t\t\twhile(N % i == 0) {"
+			"\t\t\t\tN /= i;"
+			"\t\t\t\te++;"
+			"\t\t\t}"
+			"\t\t\tV.emplace_back(i, e);"
+			"\t\t}"
+			"\t}"
+			"\n\tif(N > 1) {"
+			"\t\tV.emplace_back(N, 1);"
+			"\t}"
+			"\treturn V;"
+			"}"
+		],
+		"description": "factors"
+	}
+
 	"Segment Tree": {
-		"prefix": "cst",
+		"prefix": "pcst",
 		"body": [
 			"class SegTree {"
 			"\n\tprivate:"
