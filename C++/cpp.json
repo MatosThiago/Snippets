@@ -6,7 +6,7 @@
           "#ifndef $1"
           "#define $1"
           "\n$0"
-		  "\n#endif"
+		  "\n#endif // $1"
         ],
         "description": "Set default header structure"
     }
@@ -35,14 +35,6 @@
 		  "}"
         ],
         "description": "Set default competitive structure"
-    }
-	
-	"Include": {
-        "prefix": "inc",
-        "body": [
-          "#include <${1:bits/stdc++.h}>$0"
-        ],
-        "description": "include"
     }
 
 	"Using Namespace": {
