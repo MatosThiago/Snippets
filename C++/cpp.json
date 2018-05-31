@@ -12,7 +12,7 @@
     }
 
 	"Default": {
-        "prefix": "cpp",
+        "prefix": "cc",
         "body": [
           "#include <${1:iostream}>"
           "\nusing namespace std;"
@@ -511,7 +511,7 @@
 	"Distance between Vertices": {
 		"prefix": "dbv",
 		"body": [
-			"distance_between_vertices($1);$0"
+			"distance_between_vertices($1)$0"
 		],
 		"description": "distance between vertices"
 	}
