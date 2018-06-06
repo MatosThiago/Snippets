@@ -471,5 +471,26 @@
 			"make_path($1);$0"
 		],
 		"description": "function make path"
+	},
+
+	"Dynamic Programming": {
+		"prefix": "pcdp",
+		"body": [
+			"vector<${1:int}> tb($2);",
+			"\n$1 dp(int n) {",
+			"\tif(n $3) {",
+			"\t\treturn $4;",
+			"\t}",
+			"\tif(n $5) {",
+			"\t\treturn $6;",
+			"\t}",
+			"\tif(tb[n] != $7) {",
+			"\t\treturn tb[n];",
+			"\t}",
+			"\n\ttb[n] = $0;",
+			"\treturn tb[n];",
+			"}"
+		],
+		"description": "design dynamic programming"
 	}
 }
